@@ -39,3 +39,9 @@ sed -i 's/15744k/32448k/g' target/linux/ramips/image/mt7621.mk
 sed -i 's/OpenWrt/K2P-32M/g' package/base-files/files/bin/config_generate
 sed -i 's/<80000000>/<10000000>/g' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 sed -i 's/m25p,fast-read;/broken-flash-reset;/g' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
+
+# 编译最新passwall去config增加passwall的选项
+git clone https://github.com/xiaorouji/openwrt-passwall.git -b packages ./package/lean/passwall_package
+git clone https://github.com/xiaorouji/openwrt-passwall.git -b luci ./package/lean/passwall
+cp -rf ./package/lean/passwall_package/* ./package/lean/passwall
+rm -rf ./package/lean/passwall_package
