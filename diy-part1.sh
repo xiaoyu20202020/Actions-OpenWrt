@@ -40,6 +40,10 @@ sed -i 's/OpenWrt/K2P-32M/g' package/base-files/files/bin/config_generate
 sed -i 's/<80000000>/<10000000>/g' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 sed -i 's/m25p,fast-read;/broken-flash-reset;/g' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 
+# 第三方插件
+sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+
 # 编译最新passwall去config增加passwall的选项
 git clone https://github.com/xiaorouji/openwrt-passwall.git -b packages ./package/lean/passwall_package
 git clone https://github.com/xiaorouji/openwrt-passwall.git -b luci ./package/lean/passwall
