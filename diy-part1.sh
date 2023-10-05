@@ -45,13 +45,11 @@ sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf
 sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 
 # 编译最新passwall去config增加passwall的选项
-git clone https://github.com/xiaorouji/openwrt-passwall.git -b packages ./package/lean/passwall_package
-git clone https://github.com/xiaorouji/openwrt-passwall.git -b luci ./package/lean/passwall
-cp -rf ./package/lean/passwall_package/* ./package/lean/passwall
-rm -rf ./package/lean/passwall_package
-cd ./package/lean/passwall
-git checkout 0a9c9f8
-cd ../../
+# git clone https://github.com/xiaorouji/openwrt-passwall.git -b packages ./package/lean/passwall_package
+# git clone https://github.com/xiaorouji/openwrt-passwall.git -b luci ./package/lean/passwall
+# cp -rf ./package/lean/passwall_package/* ./package/lean/passwall
+# rm -rf ./package/lean/passwall_package
+
 
 # 编译指定版本的passwall
 # git clone-b packages ./package/passwall_package
@@ -61,3 +59,14 @@ cd ../../
 # cd ./package/passwall
 # git checkout 0a9c9f8 # 这是4.68-5版本的commit ID
 # cd ../../
+
+git clone https://github.com/xiaorouji/openwrt-passwall.git -b packages ./package/passwall_package
+git clone https://github.com/xiaorouji/openwrt-passwall.git -b luci ./package/passwall_luci
+cp -rf ./package/passwall_package/* ./package/passwall
+rm -rf ./package/passwall_package
+cd ./package/passwall
+git checkout 0a9c9f8 # 这是4.68-5版本的commit ID
+git reset --hard 0a9c9f8 # 这是为了回退到4.68-5版本
+git pull # 这是为了获取最新的更新
+git checkout 3d6e0f3 # 这是4.66-8版本的commit ID
+cd ../../
