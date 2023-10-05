@@ -12,3 +12,6 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
+
+make menuconfig # 在菜单中选择Network -> VPN -> luci-app-passwall
+make package/passwall/compile V=s # 编译passwall插件
