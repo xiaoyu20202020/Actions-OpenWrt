@@ -18,7 +18,7 @@
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 
 #修改内核版本
-sed -i 's/KERNEL_TESTING_PATCHVER:=5.15/KERNEL_TESTING_PATCHVER:=5.4 /g' target/linux/ramips/Makefile
+# sed -i 's/KERNEL_TESTING_PATCHVER:=5.15/KERNEL_TESTING_PATCHVER:=5.4 /g' target/linux/ramips/Makefile
 
 #修改root密码为空
 #sed -i 's/root:$1$26qPRdbV$j9PQ1CCliyiydNI1uRxbH/:19598:0:99999:7:::/root:password/g' package/lean/default-settings/files/zzz-default-settings
@@ -67,6 +67,6 @@ rm -rf ./package/passwall_package
 cd ./package/passwall
 git checkout 0a9c9f8 # 这是4.68-5版本的commit ID
 git reset --hard 0a9c9f8 # 这是为了回退到4.68-5版本
-git pull # 这是为了获取最新的更新
-git checkout 3d6e0f3 # 这是4.66-8版本的commit ID
+# git pull # 这是为了获取最新的更新
+# git checkout 3d6e0f3 # 这是4.66-8版本的commit ID
 cd ../../
