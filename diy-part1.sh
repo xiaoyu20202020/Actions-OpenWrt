@@ -42,4 +42,4 @@ git checkout 0a9c9f8 # 这是4.68-5版本的commit ID
 git reset --hard 0a9c9f8 # 这是为了回退到4.68-5版本
 # git pull # 这是为了获取最新的更新
 # git checkout 3d6e0f3 # 这是4.66-8版本的commit ID
-# cd ../../
+cd ../../
