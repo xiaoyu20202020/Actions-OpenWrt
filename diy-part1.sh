@@ -18,7 +18,7 @@
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 
 #修改内核版本
-# sed -i 's/KERNEL_TESTING_PATCHVER:=5.15/KERNEL_TESTING_PATCHVER:=5.4 /g' target/linux/ramips/Makefile
+#sed -i 's/KERNEL_TESTING_PATCHVER:=5.15/KERNEL_TESTING_PATCHVER:=5.4 /g' target/linux/ramips/Makefile
 
 #修改root密码为空
 #sed -i 's/root:$1$26qPRdbV$j9PQ1CCliyiydNI1uRxbH/:19598:0:99999:7:::/root:password/g' package/lean/default-settings/files/zzz-default-settings
@@ -49,7 +49,6 @@ sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 # git clone https://github.com/xiaorouji/openwrt-passwall.git -b luci ./package/lean/passwall
 # cp -rf ./package/lean/passwall_package/* ./package/lean/passwall
 # rm -rf ./package/lean/passwall_package
-
 
 # 编译指定版本的passwall
 # git clone-b packages ./package/passwall_package
