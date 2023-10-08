@@ -12,6 +12,11 @@
 #修改root密码为空
 sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings
 
+# 第三方插件
+sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+./scripts/feeds update -a && ./scripts/feeds install -a
+
 # Modify default theme修改默认主题
 rm -rf package/lean/luci-theme-bootstrap
 # rm -rf package/lean/luci-theme-argon
@@ -28,23 +33,17 @@ sed -i 's/OpenWrt/K2P-32M/g' package/base-files/files/bin/config_generate
 sed -i 's/<80000000>/<10000000>/g' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 sed -i 's/m25p,fast-read;/broken-flash-reset;/g' target/linux/ramips/dts/mt7621_phicomm_k2p.dts
 
-# 第三方插件
-sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 
 # 5.4改5.15内核
 sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.15/g' target/linux/ramips/Makefile
 sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=5.15/g' include/kernel-version.mk
 
-# 编译指定的passwall
+# 编译指定的passwall的4.66-8版本
 git clone https://github.com/xiaorouji/openwrt-passwall.git -b packages ./package/passwall_package
-git clone https://github.com/xiaorouji/openwrt-passwall.git -b luci ./package/passwall_luci
+git clone https://github.com/xiaorouji/openwrt-passwall.git -b luci ./package/passwall
 cp -rf ./package/passwall_package/* ./package/passwall
 rm -rf ./package/passwall_package
-cd ./package/passwall
-# git checkout 0a9c9f8 # 这是4.68-5版本的commit ID
-# git reset --hard 0a9c9f8 # 这是为了回退到4.68-5版本
-git pull # 这是为了获取最新的更新
+cd ./package/passwall/luci-app-passwall
 git checkout 4.66-8
-git checkout 3d6e0f3 # 这是4.66-8版本的commit ID
-cd ../../
+git checkout 0a9c9f8
+cd ../../../..
