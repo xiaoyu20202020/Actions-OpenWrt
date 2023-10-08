@@ -15,7 +15,6 @@ sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-defaul
 # 第三方插件
 sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
-./scripts/feeds update -a && ./scripts/feeds install -a
 
 # Modify default theme修改默认主题
 rm -rf package/lean/luci-theme-bootstrap
