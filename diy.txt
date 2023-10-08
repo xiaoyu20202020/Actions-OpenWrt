@@ -22,7 +22,19 @@
 # cd ./package/passwall
 # git checkout 0a9c9f8 # 这是4.68-5版本的commit ID
 # cd ../../
-  
+
+# 在github编译openwrt的passwall的4.66-8版本
+# git clone9-b packages ./package/passwall_package
+# git clone9-b luci ./package/passwall_luci
+# cp -rf ./package/passwall_package/* ./package/passwall
+# rm -rf ./package/passwall_package
+# cd ./package/passwall
+# git checkout 0a9c9f8 # 这是4.68-5版本的commit ID
+# git reset --hard 0a9c9f8 # 这是为了回退到4.68-5版本
+# git pull # 这是为了获取最新的更新
+# git checkout 3d6e0f3 # 这是4.66-8版本的commit ID
+# cd ../../
+
 # 5.4改5.15内核
 # sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.15/g' target/linux/ramips/Makefile
 # sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=5.15/g' include/kernel-version.mk
