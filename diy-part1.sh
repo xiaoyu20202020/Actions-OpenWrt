@@ -36,7 +36,8 @@ sed -i 's/m25p,fast-read;/broken-flash-reset;/g' target/linux/ramips/dts/mt7621_
 
 # 5.4改5.15内核
 sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.15/g' target/linux/ramips/Makefile
-sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=5.15/g' include/kernel-version.mk
+# sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=5.15/g' include/kernel-version.mk
+sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=5.15/g' target/linux/ramips/Makefile
 
 # 编译指定的passwall的4.66-8版本
 git clone https://github.com/xiaorouji/openwrt-passwall.git -b packages ./package/passwall_package
