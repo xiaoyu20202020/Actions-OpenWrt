@@ -14,14 +14,15 @@
 # cp -rf ./package/lean/passwall_package/* ./package/lean/passwall
 # rm -rf ./package/lean/passwall_package
 
-# 编译指定版本的passwall
-# git clone-b packages ./package/passwall_package
-# git clone-b luci ./package/passwall_luci
+# 编译指定的passwall的4.66-8版本
+# git clone https://github.com/xiaorouji/openwrt-passwall.git -b packages ./package/passwall_package
+# git clone https://github.com/xiaorouji/openwrt-passwall.git -b luci ./package/passwall
 # cp -rf ./package/passwall_package/* ./package/passwall
 # rm -rf ./package/passwall_package
-# cd ./package/passwall
-# git checkout 0a9c9f8 # 这是4.68-5版本的commit ID
-# cd ../../
+# cd ./package/passwall/luci-app-passwall
+# git checkout 4.66-8
+# git checkout 0a9c9f8
+# cd ../../../..
 
 # 在github编译openwrt的passwall的4.66-8版本
 # git clone9-b packages ./package/passwall_package
