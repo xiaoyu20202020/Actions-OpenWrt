@@ -32,14 +32,18 @@ sed -i 's/m25p,fast-read;/broken-flash-reset;/g' target/linux/ramips/dts/mt7621_
 sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 
+# 5.4改5.15内核
+sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.15/g' target/linux/ramips/Makefile
+sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=5.15/g' include/kernel-version.mk
+
 # 编译指定的passwall
 git clone https://github.com/xiaorouji/openwrt-passwall.git -b packages ./package/passwall_package
 git clone https://github.com/xiaorouji/openwrt-passwall.git -b luci ./package/passwall_luci
 cp -rf ./package/passwall_package/* ./package/passwall
 rm -rf ./package/passwall_package
 cd ./package/passwall
-git checkout 0a9c9f8 # 这是4.68-5版本的commit ID
-git reset --hard 0a9c9f8 # 这是为了回退到4.68-5版本
-# git pull # 这是为了获取最新的更新
-# git checkout 3d6e0f3 # 这是4.66-8版本的commit ID
+# git checkout 0a9c9f8 # 这是4.68-5版本的commit ID
+# git reset --hard 0a9c9f8 # 这是为了回退到4.68-5版本
+git pull # 这是为了获取最新的更新
+git checkout 3d6e0f3 # 这是4.66-8版本的commit ID
 cd ../../
