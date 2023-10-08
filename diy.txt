@@ -29,3 +29,7 @@
 
 # 5.15改5.4内核
 # sed -i 's/KERNEL_TESTING_PATCHVER:=5.15/KERNEL_TESTING_PATCHVER:=5.4 /g' target/linux/ramips/Makefile
+
+# Change some options修改默认内存闪存大小
+# sed -i 's/CONFIG_TARGET_ROOTFS_PARTSIZE=160/CONFIG_TARGET_ROOTFS_PARTSIZE=256/g' .config
+# sed -i 's/CONFIG_TARGET_KERNEL_PARTSIZE=32/CONFIG_TARGET_KERNEL_PARTSIZE=64/g' .config
