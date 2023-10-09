@@ -38,15 +38,12 @@ sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.15/g' target/linux/ramips/Make
 # sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=5.15/g' include/kernel-version.mk
 sed -i 's/KERNEL_TESTING_PATCHVER:=5.4/KERNEL_TESTING_PATCHVER:=5.15/g' target/linux/ramips/Makefile
 
-
-# 编译最新passwall去config增加passwall的选项
-git clone https://github.com/xiaorouji/openwrt-passwall.git -b packages ./package/lean/passwall_package
-git clone https://github.com/xiaorouji/openwrt-passwall.git -b luci ./package/lean/passwall
-cp -rf ./package/lean/passwall_package/* ./package/lean/passwall
-rm -rf ./package/lean/passwall_package
-cd ./package/lean/passwall
-git pull
-git checkout 4.66-8
-git checkout 0a9c9f8
-git reset --hard 0a9c9f8
-cd ../../
+# 编译指定的passwall的4.66-8版本
+# git clone https://github.com/xiaorouji/openwrt-passwall.git -b packages ./package/passwall_package
+# git clone https://github.com/xiaorouji/openwrt-passwall.git -b luci ./package/passwall
+# cp -rf ./package/passwall_package/* ./package/passwall
+# rm -rf ./package/passwall_package
+# cd ./package/passwall
+# git checkout 4.66-8
+# git checkout 3d6e0f3
+# cd ../../
