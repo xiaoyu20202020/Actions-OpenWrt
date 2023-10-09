@@ -21,7 +21,7 @@
 # rm -rf ./package/passwall_package
 # cd ./package/passwall/luci-app-passwall
 # git checkout 4.66-8
-# git checkout 0a9c9f8
+# git checkout 3d6e0f3
 # cd ../../../..
 
 # 在github编译openwrt的passwall的4.66-8版本
