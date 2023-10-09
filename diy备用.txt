@@ -91,3 +91,10 @@
 
 # 取消原主题luci-theme-bootstrap为默认主题
 # sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
+
+# Add some packages
+cat >> .config <<EOF
+CONFIG_PACKAGE_luci-app-openclash=y
+CONFIG_PACKAGE_luci-app-ssr-plus=y
+CONFIG_PACKAGE_luci-theme-argon=y
+EOF
